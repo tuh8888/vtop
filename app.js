@@ -512,7 +512,7 @@ const App = ((() => {
       graph = blessed.box({
         top: 1,
         left: 'left',
-        width: '100%',
+        width: '50%',
         height: '50%',
         content: '',
         fg: loadedTheme.chart.fg,
@@ -543,10 +543,10 @@ const App = ((() => {
         screen.append(graph2)
 
         processList = blessed.box({
-          top: graph.height + 1,
+          top: 1,
           left: '50%',
           width: screen.width - graph2.width,
-          height: graph.height - 2,
+          height: graph.height + graph2.height,
           keys: true,
           mouse: cli.mouse,
           fg: loadedTheme.table.fg,
