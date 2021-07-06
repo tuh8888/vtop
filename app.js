@@ -70,6 +70,7 @@ const App = ((() => {
   let graph2
   let processList
   let processListSelection
+  let prompt
 
   // Private functions
 
@@ -375,7 +376,9 @@ const App = ((() => {
       // Update the numbers
       processListSelection.setItems(table.body)
 
-      processListSelection.focus()
+      if (prompt.hidden) {
+        processListSelection.focus()
+      }
 
       currentItems = table.body
     }
@@ -509,7 +512,7 @@ const App = ((() => {
       graph = blessed.box({
         top: 1,
         left: 'left',
-        width: '100%',
+        width: '50%',
         height: '50%',
         content: '',
         fg: loadedTheme.chart.fg,
@@ -540,10 +543,10 @@ const App = ((() => {
         screen.append(graph2)
 
         processList = blessed.box({
-          top: graph.height + 1,
+          top: 1,
           left: '50%',
           width: screen.width - graph2.width,
-          height: graph.height - 2,
+          height: graph.height + graph2.height,
           keys: true,
           mouse: cli.mouse,
           fg: loadedTheme.table.fg,
@@ -559,14 +562,32 @@ const App = ((() => {
           left: 0,
           keys: true,
           vi: true,
-          search (jump) {
-            // @TODO
-            // jump('string of thing to jump to');
+          search: function (callback) {
+            prompt.input('Search:', '', function (err, value) {
+                if (err) return;
+                return callback(null, value);
+            });
           },
           style: loadedTheme.table.items,
           mouse: cli.mouse
         })
         processList.append(processListSelection)
+
+        prompt = blessed.prompt({
+          bottom: processListSelection.rows - 3,
+          height: 'shrink',
+          width: 'shrink',
+          keys: true,
+          vi: true,
+          mouse: true,
+          tags: true,
+          border:'line',
+          hidden: true,
+        });
+        prompt._.input.top = 1
+        prompt._.okay.top = 2
+        prompt._.cancel.top = 2
+        processList.append(prompt)
         processListSelection.focus()
         screen.render()
       }
