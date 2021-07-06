@@ -148,13 +148,13 @@ const App = ((() => {
    */
   const drawFooter = () => {
     const commands = {
-      'dd': 'Kill process',
-      'j': 'Down',
-      'k': 'Up',
-      'g': 'Jump to top',
-      'G': 'Jump to bottom',
-      'c': 'Sort by CPU',
-      'm': 'Sort by Mem'
+      x: 'Kill process',
+      s: 'Down',
+      f: 'Up',
+      g: 'Jump to top',
+      G: 'Jump to bottom',
+      c: 'Sort by CPU',
+      m: 'Sort by Mem'
     }
     let text = ''
     for (const c in commands) {
@@ -429,7 +429,7 @@ const App = ((() => {
       let lastKey = ''
 
       screen.on('keypress', (ch, key) => {
-        if (key === 'up' || key === 'down' || key === 'k' || key === 'j') {
+        if (key === 'up' || key === 'down' || key === 'f' || key === 's') {
           // Disable table updates for half a second
           disableTableUpdate = true
           clearTimeout(disableTableUpdateTimeout)
@@ -450,7 +450,7 @@ const App = ((() => {
         }
         // dd killall
         // @todo: Factor this out
-        if (lastKey === 'd' && key.name === 'd') {
+        if (key.name === 'x') {
           let selectedProcess = processListSelection.getItem(processListSelection.selected).content
           selectedProcess = selectedProcess.slice(0, processWidth).trim()
 
@@ -494,9 +494,9 @@ const App = ((() => {
           ])
         }
 
-        if ((key.name === 'left' || key.name === 'h') && graphScale < 8) {
+        if ((key.name === 'left' || key.name === 'r') && graphScale < 8) {
           graphScale *= 2
-        } else if ((key.name === 'right' || key.name === 'l') && graphScale > 0.125) {
+        } else if ((key.name === 'right' || key.name === 't') && graphScale > 0.125) {
           graphScale /= 2
         }
       })

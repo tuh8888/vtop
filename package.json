@@ -31,7 +31,7 @@
   "license": "MIT",
   "readmeFilename": "README.md",
   "dependencies": {
-    "blessed": "0.1.81",
+    "blessed": "github:tuh8888/blessed#master",
     "commander": "2.11.0",
     "drawille": "1.1.0",
     "glob": "7.1.2",
