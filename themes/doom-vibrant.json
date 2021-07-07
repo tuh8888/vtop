@@ -1,0 +1,42 @@
+{
+    "name": "Tomorrow Night",
+    "author": "Harrison Pielke-Lomardo",
+    "description": "Unofficial color scheme based on the great color palette from https://github.com/chriskempson/tomorrow-theme",
+    "title": {
+        "fg": "#ff665c"
+    },
+    "cpuChart": {
+        "fg": "#51afef",
+        "border": {
+            "type": "line",
+            "fg": "#51afef"
+        }
+    },
+    "memChart": {
+        "fg": "#a991f1",
+        "border": {
+            "type": "line",
+            "fg": "#a991f1"
+        }
+    },
+    "table": {
+        "fg": "fg",
+        "items": {
+            "selected": {
+                "bg": "#51afef",
+                "fg": "#1c1f24"
+            },
+            "item": {
+                "fg": "fg",
+                "bg": "bg"
+            }
+        },
+        "border": {
+            "type": "line",
+            "fg": "#fcce7b"
+        }
+    },
+    "footer": {
+        "fg": "fg"
+    }
+}

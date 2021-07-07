@@ -515,9 +515,9 @@ const App = ((() => {
         width: '50%',
         height: '50%',
         content: '',
-        fg: loadedTheme.chart.fg,
-        tags: true,
-        border: loadedTheme.chart.border
+          fg: loadedTheme.cpuChart.fg,
+          tags: true,
+          border: loadedTheme.cpuChart.border
       })
 
       screen.append(graph)
@@ -536,9 +536,9 @@ const App = ((() => {
           width: '50%',
           height: graph.height - 2,
           content: '',
-          fg: loadedTheme.chart.fg,
-          tags: true,
-          border: loadedTheme.chart.border
+            fg: loadedTheme.memChart.fg,
+            tags: true,
+            border: loadedTheme.memChart.border
         })
         screen.append(graph2)
 
