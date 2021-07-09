@@ -154,6 +154,7 @@ const App = ((() => {
       f: 'Up',
       g: 'Jump to top',
       G: 'Jump to bottom',
+      n: 'Sort by Command (name)',
       c: 'Sort by CPU',
       m: 'Sort by Mem'
     }
@@ -462,6 +463,13 @@ const App = ((() => {
 
         if (key.name === 'c' && charts[2].plugin.sort !== 'cpu') {
           charts[2].plugin.sort = 'cpu'
+          charts[2].plugin.poll()
+          setTimeout(() => {
+            processListSelection.select(0)
+          }, 200)
+        }
+        if (key.name === 'n' && charts[2].plugin.sort !== 'Command') {
+          charts[2].plugin.sort = 'Command'
           charts[2].plugin.poll()
           setTimeout(() => {
             processListSelection.select(0)

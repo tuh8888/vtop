@@ -110,7 +110,11 @@ const plugin = {
           'mem': stats[stat].mem // exact cpu for comparison
         })
       }
-      statsArray.sort((a, b) => parseFloat(b[plugin.sort]) - parseFloat(a[plugin.sort]))
+      if (plugin.sort === 'Command') {
+        statsArray.sort((a, b) => a[plugin.sort].localeCompare(b[plugin.sort]))
+      } else {
+        statsArray.sort((a, b) => parseFloat(b[plugin.sort]) - parseFloat(a[plugin.sort]))
+      }
 
       plugin.currentValue = statsArray
       plugin.initialized = true
