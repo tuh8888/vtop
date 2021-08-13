@@ -3,28 +3,28 @@
     "author": "Harrison Pielke-Lomardo",
     "description": "Unofficial color scheme based on the great color palette from https://github.com/chriskempson/tomorrow-theme",
     "title": {
-        "fg": "#ff665c"
+        "fg": "#e45649"
     },
     "cpuChart": {
-        "fg": "#51afef",
+        "fg": "#4078f2",
         "border": {
             "type": "line",
-            "fg": "#51afef"
+            "fg": "#4078f2"
         }
     },
     "memChart": {
-        "fg": "#a991f1",
+        "fg": "#b751b6",
         "border": {
             "type": "line",
-            "fg": "#a991f1"
+            "fg": "#b751b6"
         }
     },
     "table": {
         "fg": "fg",
         "items": {
             "selected": {
-                "bg": "#51afef",
-                "fg": "#1c1f24"
+                "bg": "#4078f2",
+                "fg": "#f0f0f0"
             },
             "item": {
                 "fg": "fg",
@@ -33,7 +33,7 @@
         },
         "border": {
             "type": "line",
-            "fg": "#fcce7b"
+            "fg": "#986801"
         }
     },
     "footer": {
