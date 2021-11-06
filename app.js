@@ -519,13 +519,13 @@ const App = ((() => {
 
       graph = blessed.box({
         top: 1,
-        left: 'left',
-        width: '50%',
+        left: '80%',
+        width: '20%',
         height: '50%',
         content: '',
-          fg: loadedTheme.cpuChart.fg,
-          tags: true,
-          border: loadedTheme.cpuChart.border
+        fg: loadedTheme.cpuChart.fg,
+        tags: true,
+        border: loadedTheme.cpuChart.border
       })
 
       screen.append(graph)
@@ -540,20 +540,20 @@ const App = ((() => {
         graph2appended = true
         graph2 = blessed.box({
           top: graph.height + 1,
-          left: 'left',
-          width: '50%',
+          left: '80%',
+          width: '20%',
           height: graph.height - 2,
           content: '',
-            fg: loadedTheme.memChart.fg,
-            tags: true,
-            border: loadedTheme.memChart.border
+          fg: loadedTheme.memChart.fg,
+          tags: true,
+          border: loadedTheme.memChart.border
         })
         screen.append(graph2)
 
         processList = blessed.box({
           top: 1,
-          left: '50%',
-          width: screen.width - graph2.width,
+          left: 'left',
+          width: screen.width - graph2.width - 1,
           height: graph.height + graph2.height,
           keys: true,
           mouse: cli.mouse,
